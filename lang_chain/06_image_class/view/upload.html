@@ -8,7 +8,7 @@
 <body>
     <h3>김지훈의 파일 업로드 페이지</h3>
     <form id="fileForm">
-        <input type="file" name="files" multiple="multiple"/>
+        <input type="file" name="files"/>
     </form>
     <input type="button" onclick="save()" value="전송"/>
 </body>
@@ -21,8 +21,7 @@
         console.log('click');
         const form = new FormData(document.getElementById('fileForm'));
         const {data} = await axios.post('/upload',form);
-        alert(data.msg);
-        location.href='/view/file_list.html';
+        console.log(data);
     }
 </script>
 </html>
