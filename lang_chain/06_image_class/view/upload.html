@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>파일 업로드</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h3>김지훈의 파일 업로드 페이지</h3>
+    <form id="fileForm">
+        <input type="file" name="files" multiple="multiple"/>
+    </form>
+    <input type="button" onclick="save()" value="전송"/>
+</body>
+<script>
+    // 파일 전송시 주의사항
+    // 1. POST 방식으로 보낼것
+    // 2. FormData  객체로 보낼것
+    // 3. 동기 방식일 경우 enctype=multipart/form-data 명시할것
+    async function save(){
+        console.log('click');
+        const form = new FormData(document.getElementById('fileForm'));
+        const {data} = await axios.post('/upload',form);
+        alert(data.msg);
+        location.href='/view/file_list.html';
+    }
+</script>
+</html>
