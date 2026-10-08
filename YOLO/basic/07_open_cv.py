@@ -28,7 +28,8 @@ while True:
 
     # YOLO 가 탐지한 내용을 가져와서 그리기
     yolo_frame = results[0].plot()
-    cv2.imshow("YOLO 실시간 추적",yolo_frame)
+    resize_frame = cv2.resize(yolo_frame,(480,640)) # 창 크기 줄이기
+    cv2.imshow("YOLO 실시간 추적",resize_frame)
 
     # q 키 누르면 종료
     if cv2.waitKey(1) & 0xFF == ord("q"):
