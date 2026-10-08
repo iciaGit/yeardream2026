@@ -1,6 +1,6 @@
 import os
 from torchvision import datasets
-
+from ultralytics import YOLO
 
 class_names = ["T-shirt", "Trouser", "Pullover", "Dress", "Coat",
                "Sandal", "Shirt", "Sneaker", "Bag", "Ankle-boot"]
@@ -24,3 +24,27 @@ def download_image(split='train'):
 
 # download_image('train')
 # download_image('test')
+
+# 2. 모델을 불러와서 인식
+if __name__ == '__main__':
+    model = YOLO('yolo26n-cls.pt')
+    model.train(
+        data = 'fashion_mnist', # 학습데이터 폴더 경로
+        exist_ok=True, # 덮어쓰기여부
+        epochs=5, # 전체 데이터 학습 횟수
+        imgsz=28, # 이미지크기 지정(28*28)
+        batch=64, # 한번에 처리할 수
+        workers=1, # 데이터 로딩에 사용할 스레드 수
+    )
+    print('모델 학습 완료')
+
+
+
+
+
+
+
+
+
+
+
