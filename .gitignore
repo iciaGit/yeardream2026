@@ -7,3 +7,4 @@
 **/data
 **/.env
 **/runs
+**/fashion_mnist/
