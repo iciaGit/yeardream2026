@@ -1,6 +1,6 @@
 SELECT * FROM mysql.user;
 
-# 주석
+# 주석 
 -- 주석(대표주석)
 
 # database 확인 - 테이블을 모아놓은 저장소
